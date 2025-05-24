@@ -1,0 +1,94 @@
+.container {
+  width: 1440px;
+  height: 80px;
+  background-color: #fff;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.main {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 270%;
+  vertical-align: bottom;
+}
+.signIn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 156%;
+  color: rgba(0, 0, 0, 0.85);
+  padding: 10px 20px;
+}
+.signUp {
+  border: 1px solid #52c41a;
+  border-radius: 5px;
+  width: 109px;
+  height: 51px;
+  padding: 10px 20px;
+  margin-left: 17px;
+}
+.signUpText {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 156%;
+  color: #52c41a !important;
+}
+.authorization {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.createArticle {
+  border: 1px solid #52c41a;
+  border-radius: 5px;
+  font-weight: 400;
+  width: 112px;
+  height: 31px;
+  font-size: 14px;
+  line-height: 157%;
+  font-family: 'Inter UI', sans-serif;
+  color: #52c41a;
+}
+.logOut {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 156%;
+  font-family: 'Inter UI', sans-serif;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 109px;
+  height: 51px;
+  margin-left: 27px;
+}
+.profile {
+  margin-left: 27px;
+}
+.username {
+  font-family: 'Inter UI', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 156%;
+  color: rgba(0, 0, 0, 0.85);
+}
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-left: 13px;
+  transform: translateY(-5px);
+}
+.avatarPlaceholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}

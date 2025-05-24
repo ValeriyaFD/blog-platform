@@ -1,0 +1,113 @@
+.container {
+  max-height: fit-content;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  padding: 48px 32px;
+  width: 384px;
+  min-height: 498px;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.02),
+    0 1px 7px 0 rgba(0, 0, 0, 0.03),
+    0 3px 13px 0 rgba(0, 0, 0, 0.04),
+    0 5px 24px 0 rgba(0, 0, 0, 0.04),
+    0 9px 44px 0 rgba(0, 0, 0, 0.05),
+    0 22px 106px 0 rgba(0, 0, 0, 0.07);
+  background-color: #fff;
+  margin: 59px auto;
+}
+.username {
+  margin-bottom: 12px;
+}
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  text-align: center;
+  color: #262626;
+  margin-bottom: 21px;
+}
+.text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+  color: #262626;
+}
+.input {
+  width: 320px;
+  height: 40px;
+  border: 1px solid #bfbfbf;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  padding: 8px 12px;
+}
+.create {
+  width: 319px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #fff;
+  background-color: #1890ff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  margin-bottom: 8px;
+  margin-top: 21px;
+}
+.info {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 167%;
+  text-align: center;
+  color: #8c8c8c;
+}
+.sign {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 167%;
+  text-align: center;
+  color: #1890ff !important;
+}
+.email {
+  margin-bottom: 12px;
+}
+.password {
+  margin-bottom: 12px;
+}
+.agreeText {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+  color: #595959;
+  margin-left: 8px;
+}
+.agree {
+  display: flex;
+  flex-wrap: nowrap;
+  border-top: 1px solid #e8e8e8;
+  margin-top: 21px;
+  padding-top: 8px;
+}
+.checkbox {
+  transform: translateY(-12px);
+}
+.error {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+  color: #f5222d;
+}
+.inputError {
+  border-color: #f5222d;
+}

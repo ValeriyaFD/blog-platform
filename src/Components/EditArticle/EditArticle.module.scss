@@ -1,0 +1,138 @@
+.container {
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  padding: 48px 32px;
+  width: 938px;
+  min-height: 701px;
+  height: fit-content;
+  margin: 24px auto;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.02),
+    0 1px 7px 0 rgba(0, 0, 0, 0.03),
+    0 3px 13px 0 rgba(0, 0, 0, 0.04),
+    0 5px 24px 0 rgba(0, 0, 0, 0.04),
+    0 9px 44px 0 rgba(0, 0, 0, 0.05),
+    0 22px 106px 0 rgba(0, 0, 0, 0.07);
+  background: #fff;
+}
+.header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  text-align: center;
+  color: #262626;
+  margin-bottom: 21px;
+}
+.title {
+  margin-bottom: 21px;
+}
+.shortDesc {
+  margin-bottom: 21px;
+}
+.mainText {
+  margin-bottom: 21px;
+}
+.table {
+  margin-bottom: 21px;
+}
+.text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 157%;
+  color: #262626;
+}
+.input {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: black;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  width: 874px;
+  height: 40px;
+  padding: 8px 12px;
+}
+.textarea {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: black;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  width: 874px;
+  height: 168px;
+  padding: 8px 12px;
+  vertical-align: text-top;
+}
+.inputTag {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: black;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  width: 300px;
+  height: 40px;
+  padding: 8px 12px;
+  margin-right: 17px;
+}
+.tagItem {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 5px;
+}
+.submitButton {
+  width: 319px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background-color: #1890ff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: #fff;
+}
+.delete {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: #f5222d;
+  border: 1px solid #f5222d;
+  border-radius: 4px;
+  padding: 8px 16px;
+  width: 118px;
+  height: 40px;
+  margin-right: 17px;
+}
+.addTag {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: #1890ff;
+  border: 1px solid #1890ff;
+  border-radius: 4px;
+  padding: 8px 16px;
+  min-width: 136px;
+  height: 40px;
+}
+.error {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+  color: #f5222d;
+}
+.inputError {
+  border-color: #f5222d;
+}

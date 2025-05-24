@@ -8,17 +8,13 @@ import { useSignUpMutation } from '../../blogApi';
 import { setCredentials } from '../../reducers/authSlice';
 import classes from './SignUp.module.scss';
 
-// Схема валидации
 const schema = yup.object().shape({
   username: yup
     .string()
     .required('Username is required')
     .min(3, 'Username must be at least 3 characters')
     .max(20, 'Username must not exceed 20 characters'),
-  email: yup
-    .string()
-    .required('Email is required')
-    .email('Please enter a valid email address'),
+  email: yup.string().required('Email is required').email('Please enter a valid email address'),
   password: yup
     .string()
     .required('Password is required')
@@ -26,11 +22,9 @@ const schema = yup.object().shape({
     .max(40, 'Password must not exceed 40 characters'),
   repeatPassword: yup
     .string()
-    .required('Please confirm your password')
+    .required('Please repeat your password')
     .oneOf([yup.ref('password'), null], 'Passwords must match'),
-  agree: yup
-    .boolean()
-    .oneOf([true], 'You must agree to the terms')
+  agree: yup.boolean().oneOf([true], 'You must agree to the terms'),
 });
 
 export default function SignUp() {
@@ -38,9 +32,9 @@ export default function SignUp() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    setError
+    setError,
   } = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
   });
 
   const [signUp] = useSignUpMutation();
@@ -49,27 +43,34 @@ export default function SignUp() {
 
   const onSubmit = async (data) => {
     try {
-      // Правильная структура запроса для API
-      const response = await signUp({ user: data }).unwrap();
+      const response = await signUp({
+        user: {
+          username: data.username,
+          email: data.email,
+          password: data.password,
+          image: null,
+        },
+      }).unwrap();
 
-      dispatch(setCredentials({
-        user: response.user,
-        token: response.user.token
-      }));
+      dispatch(
+        setCredentials({
+          user: response.user,
+          token: response.user.token,
+        })
+      );
       navigate('/');
     } catch (err) {
       if (err.data?.errors) {
-        // Обработка серверных ошибок
         Object.entries(err.data.errors).forEach(([key, value]) => {
           setError(key.toLowerCase(), {
             type: 'server',
-            message: Array.isArray(value) ? value.join(', ') : value
+            message: Array.isArray(value) ? value.join(', ') : value,
           });
         });
       } else {
         setError('root', {
           type: 'manual',
-          message: 'Registration failed. Please try again.'
+          message: 'Registration failed. Please try again.',
         });
       }
     }
@@ -78,9 +79,8 @@ export default function SignUp() {
   return (
     <div className={classes.container}>
       <div className={classes.title}>Create new account</div>
-      
+
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* Поле username */}
         <div className={classes.username}>
           <p className={classes.text}>Username</p>
           <input
@@ -89,12 +89,9 @@ export default function SignUp() {
             placeholder="Username"
             disabled={isSubmitting}
           />
-          {errors.username && (
-            <p className={classes.error}>{errors.username.message}</p>
-          )}
+          {errors.username && <p className={classes.error}>{errors.username.message}</p>}
         </div>
 
-        {/* Поле email */}
         <div className={classes.email}>
           <p className={classes.text}>Email address</p>
           <input
@@ -104,12 +101,9 @@ export default function SignUp() {
             placeholder="Email address"
             disabled={isSubmitting}
           />
-          {errors.email && (
-            <p className={classes.error}>{errors.email.message}</p>
-          )}
+          {errors.email && <p className={classes.error}>{errors.email.message}</p>}
         </div>
 
-        {/* Поле password */}
         <div className={classes.password}>
           <p className={classes.text}>Password</p>
           <input
@@ -119,12 +113,9 @@ export default function SignUp() {
             placeholder="Password"
             disabled={isSubmitting}
           />
-          {errors.password && (
-            <p className={classes.error}>{errors.password.message}</p>
-          )}
+          {errors.password && <p className={classes.error}>{errors.password.message}</p>}
         </div>
 
-        {/* Поле repeatPassword */}
         <div className={classes.repeatPassword}>
           <p className={classes.text}>Repeat Password</p>
           <input
@@ -134,12 +125,9 @@ export default function SignUp() {
             placeholder="Repeat Password"
             disabled={isSubmitting}
           />
-          {errors.repeatPassword && (
-            <p className={classes.error}>{errors.repeatPassword.message}</p>
-          )}
+          {errors.repeatPassword && <p className={classes.error}>{errors.repeatPassword.message}</p>}
         </div>
 
-        {/* Чекбокс согласия */}
         <div className={classes.agree}>
           <input
             type="checkbox"
@@ -151,23 +139,12 @@ export default function SignUp() {
           <label htmlFor="agree" className={classes.agreeText}>
             I agree to the processing of my personal information
           </label>
-          {errors.agree && (
-            <p className={classes.error}>{errors.agree.message}</p>
-          )}
+          {errors.agree && <p className={classes.error}>{errors.agree.message}</p>}
         </div>
 
-        {/* Общие ошибки сервера */}
-        {errors.root && (
-          <div className={classes.serverError}>
-            {errors.root.message}
-          </div>
-        )}
+        {errors.root && <div className={classes.serverError}>{errors.root.message}</div>}
 
-        <button 
-          type="submit" 
-          className={classes.create}
-          disabled={isSubmitting}
-        >
+        <button type="submit" className={classes.create} disabled={isSubmitting}>
           {isSubmitting ? 'Creating...' : 'Create'}
         </button>
       </form>
