@@ -1,21 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import BlogArticle from '../BlogArticle/BlogArticle';
 import { Pagination, Spin, Alert } from 'antd';
 import classes from './BlogList.module.scss';
 import { useGetArticlesQuery } from '../../blogApi';
 import { setCurrentPage } from '../../reducers/articleSlise';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams} from 'react-router-dom';
 
 export default function BlogList() {
   const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+  
   const currentPage = useSelector((state) => state.articles.currentPage);
   const limit = useSelector((state) => state.articles.limit);
+  const urlPage = Number(searchParams.get('page')) || 1;
 
   const { data, isLoading, isError } = useGetArticlesQuery({ page: currentPage, limit });
 
+  useEffect(() => {
+    if (urlPage !== currentPage) {
+      dispatch(setCurrentPage(urlPage));
+    }
+  }, [urlPage, currentPage, dispatch]);
+
   const handlePageChange = (page) => {
     dispatch(setCurrentPage(page));
+    setSearchParams({ page: page.toString() });
   };
 
   if (isLoading) {

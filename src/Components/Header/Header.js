@@ -63,7 +63,11 @@ export default function Header() {
             </button>
             <button className={classes.profile} onClick={handleProfileClick}>
               <span className={classes.username}>{username}</span>
-              <img src={image} alt={`Avatar`} className={classes.avatar} />
+              <img 
+              src={image || 'https://static.productionready.io/images/smiley-cyrus.jpg'} 
+              alt={`Avatar`} 
+              className={classes.avatar} 
+              />
             </button>
             <button className={classes.logOut} onClick={handleLogout}>
               Log Out
